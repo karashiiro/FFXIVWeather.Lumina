@@ -1,5 +1,5 @@
 # FFXIVWeather
-FFXIV weather forecast library for C# applications operating on a system with a local game installation and internet connection. Preferable over the regular version of the package due to its smaller file size.
+FFXIV weather forecast library for C# applications operating on a system with a local game installation. Preferable over the regular version of the package due to its smaller file size.
 
 ## Installation
 `Install-Package FFXIVWeather.Lumina` or other methods as described [here](https://www.nuget.org/packages/FFXIVWeather.Lumina/).
