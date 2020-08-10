@@ -67,10 +67,28 @@ namespace FFXIVWeather.Lumina
 
         private Weather GetWeather(WeatherRate weatherRateIndex, int target)
         {
-            // Based on our constraints, we know there're no null case here.
+            // Based on our constraints, we know there's no null case here.
             // Every zone has at least one target at 100, and weatherTarget's domain is [0,99].
-            var weatherId = weatherRateIndex.UnkStruct0.First(w => target < w.Rate).Weather;
-            var weather = this.cyalume.GetExcelSheet<Weather>().ToList()[weatherId - 1];
+            var rateAccumulator = 0;
+            var weatherId = -1;
+            for (var i = weatherRateIndex.UnkStruct0.Length - 1; i >= 0; i--)
+            {
+                var w = weatherRateIndex.UnkStruct0[i];
+
+                rateAccumulator += w.Rate;
+                if (target < rateAccumulator)
+                {
+                    weatherId = w.Weather;
+                    break;
+                }
+            }
+
+            if (weatherId == -1)
+            {
+                throw new ArgumentException("No weather matching the provided parameters was found.", nameof(target));
+            }
+
+            var weather = this.cyalume.GetExcelSheet<Weather>().ToList()[weatherId];
             return weather;
         }
 
