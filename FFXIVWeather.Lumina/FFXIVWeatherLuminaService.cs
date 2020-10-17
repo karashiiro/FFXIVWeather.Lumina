@@ -71,7 +71,7 @@ namespace FFXIVWeather.Lumina
             // Every zone has at least one target at 100, and weatherTarget's domain is [0,99].
             var rateAccumulator = 0;
             var weatherId = -1;
-            for (var i = weatherRateIndex.UnkStruct0.Length - 1; i >= 0; i--)
+            for (var i = 0; i < weatherRateIndex.UnkStruct0.Length; i++)
             {
                 var w = weatherRateIndex.UnkStruct0[i];
 
