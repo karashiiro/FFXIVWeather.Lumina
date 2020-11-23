@@ -102,7 +102,7 @@ namespace FFXIVWeather.Lumina
         private TerritoryType GetTerritory(string placeName)
         {
             var ciPlaceName = placeName.ToLowerInvariant();
-            var terriType = this.cyalume.GetExcelSheet<TerritoryType>().FirstOrDefault(tt => tt.PlaceName.Value.Name.RawString.ToLowerInvariant() == ciPlaceName);
+            var terriType = this.cyalume.GetExcelSheet<TerritoryType>().FirstOrDefault(tt => ((string)tt.PlaceName.Value.Name).ToLowerInvariant() == ciPlaceName);
             if (terriType == null) throw new ArgumentException("Specified place does not exist.", nameof(placeName));
             return terriType;
         }

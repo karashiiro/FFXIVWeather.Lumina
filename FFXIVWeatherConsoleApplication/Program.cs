@@ -30,7 +30,7 @@ namespace FFXIVWeatherConsoleApplication
             Console.WriteLine("+-----------------------+---------------+");
             foreach (var (weather, startTime) in forecast)
             {
-                Console.WriteLine($"|\t{(weather.Name.RawString.Length < 8 ? weather.Name + '\t' : weather.Name)}\t|\t{Math.Round((startTime - DateTime.UtcNow).TotalMinutes)}m\t|");
+                Console.WriteLine($"|\t{(((string)weather.Name).Length < 8 ? weather.Name + '\t' : weather.Name)}\t|\t{Math.Round((startTime - DateTime.UtcNow).TotalMinutes)}m\t|");
             }
         }
     }
