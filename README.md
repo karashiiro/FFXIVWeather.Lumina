@@ -22,7 +22,7 @@ Console.WriteLine("|\tWeather\t\t|\tTime\t|");
 Console.WriteLine("+-----------------------+---------------+");
 foreach (var (weather, startTime) in forecast)
 {
-    Console.WriteLine($"|\t{(weather.ToString().Length < 8 ? weather.ToString() + '\t' : weather.ToString())}\t|\t{Math.Round((startTime - DateTime.UtcNow).TotalMinutes)}m\t|");
+    Console.WriteLine($"|\t{(((string)weather.Name).Length < 8 ? weather.Name + '\t' : weather.Name)}\t|\t{Math.Round((startTime - DateTime.UtcNow).TotalMinutes)}m\t|");
 }
 ```
 
