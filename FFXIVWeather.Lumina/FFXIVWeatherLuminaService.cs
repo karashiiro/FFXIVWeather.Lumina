@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Cyalume = Lumina.Lumina;
+using Cyalume = Lumina.GameData;
 
 namespace FFXIVWeather.Lumina
 {

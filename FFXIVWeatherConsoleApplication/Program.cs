@@ -1,5 +1,6 @@
 ﻿using FFXIVWeather.Lumina;
 using System;
+using Lumina;
 
 namespace FFXIVWeatherConsoleApplication
 {
@@ -8,7 +9,7 @@ namespace FFXIVWeatherConsoleApplication
         static void Main(string[] args)
         {
             var pathToGameFolder = args[0];
-            var lumina = new Lumina.Lumina(pathToGameFolder);
+            var lumina = new GameData(pathToGameFolder);
             var weatherService = new FFXIVWeatherLuminaService(lumina);
             const string zone = "Eureka Pyros";
             const uint count = 15U;

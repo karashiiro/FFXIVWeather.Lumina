@@ -10,7 +10,7 @@
 	<PackageTags>ffxiv</PackageTags>
 	<Description>FFXIV weather forecast library for C# applications operating on a system with a local game installation.</Description>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>1.1.1</Version>
+	<Version>1.2.0</Version>
 	<PackageLicenseExpression></PackageLicenseExpression>
 	<PackageLicenseFile>README.md</PackageLicenseFile>
   </PropertyGroup>
@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lumina" Version="2.4.1" />
-    <PackageReference Include="Lumina.Excel" Version="5.35.0" />
+    <PackageReference Include="Lumina" Version="2.6.0" />
+    <PackageReference Include="Lumina.Excel" Version="5.40.1" />
   </ItemGroup>
 
 </Project>
