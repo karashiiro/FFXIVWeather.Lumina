@@ -10,7 +10,7 @@
 	<PackageTags>ffxiv</PackageTags>
 	<Description>FFXIV weather forecast library for C# applications operating on a system with a local game installation.</Description>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>1.2.0</Version>
+	<Version>1.2.1</Version>
 	<PackageLicenseExpression></PackageLicenseExpression>
 	<PackageLicenseFile>README.md</PackageLicenseFile>
   </PropertyGroup>

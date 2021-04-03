@@ -39,7 +39,7 @@ namespace FFXIVWeather.Lumina
             // Fill out the list
             for (var i = 1; i < count; i++)
             {
-                var time = forecast[0].Item2.AddSeconds(i * secondIncrement + initialOffset);
+                var time = forecast[0].Item2.AddSeconds(i * secondIncrement);
                 var weatherTarget = CalculateTarget(time);
                 var weather = GetWeather(weatherRateIndex, weatherTarget);
                 forecast.Add((weather, time));
