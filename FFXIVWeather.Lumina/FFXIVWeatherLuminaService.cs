@@ -29,7 +29,7 @@ namespace FFXIVWeather.Lumina
 
         public IList<(Weather, DateTime)> GetForecast(TerritoryType terriType, uint count = 1, double secondIncrement = WeatherPeriod, double initialOffset = 0 * Minutes)
         {
-            if (count == 0) return new (Weather, DateTime)[0];
+            if (count == 0) return Array.Empty<(Weather, DateTime)>();
 
             var weatherRateIndex = GetTerritoryTypeWeatherRateIndex(terriType);
 
@@ -71,9 +71,9 @@ namespace FFXIVWeather.Lumina
             // Every zone has at least one target at 100, and weatherTarget's domain is [0,99].
             var rateAccumulator = 0;
             var weatherId = -1;
-            for (var i = 0; i < weatherRateIndex.UnkStruct0.Length; i++)
+            for (var i = 0; i < weatherRateIndex.UnkData0.Length; i++)
             {
-                var w = weatherRateIndex.UnkStruct0[i];
+                var w = weatherRateIndex.UnkData0[i];
 
                 rateAccumulator += w.Rate;
                 if (target < rateAccumulator)
