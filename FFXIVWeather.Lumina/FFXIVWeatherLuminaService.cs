@@ -12,7 +12,7 @@ namespace FFXIVWeather.Lumina
         private const double Minutes = 60 * Seconds;
         private const double WeatherPeriod = 23 * Minutes + 20 * Seconds;
 
-        private static readonly DateTime UnixEpoch = new DateTime(1970, 1, 1);
+        private static readonly DateTime UnixEpoch = new(1970, 1, 1);
 
         private readonly Cyalume cyalume;
 
@@ -126,7 +126,7 @@ namespace FFXIVWeather.Lumina
         }
 
         /// <summary>
-        ///     Calculate the value used for the <see cref="WeatherRateIndex"/> at a specific <see cref="DateTime" />.
+        ///     Calculate the value used for the <see cref="WeatherRate"/> at a specific <see cref="DateTime" />.
         ///     This method is lifted straight from SaintCoinach.
         /// </summary>
         /// <param name="time"><see cref="DateTime"/> for which to calculate the value.</param>
