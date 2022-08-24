@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
 	<LangVersion>9.0</LangVersion>
 	<Authors>karashiiro</Authors>
 	<Copyright>2020</Copyright>
@@ -10,7 +10,7 @@
 	<PackageTags>ffxiv</PackageTags>
 	<Description>FFXIV weather forecast library for C# applications operating on a system with a local game installation.</Description>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>2.1.0</Version>
+	<Version>2.2.0</Version>
 	<PackageLicenseExpression></PackageLicenseExpression>
 	<PackageLicenseFile>README.md</PackageLicenseFile>
   </PropertyGroup>
@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lumina" Version="3.5.2" />
-    <PackageReference Include="Lumina.Excel" Version="6.1.1" />
+    <PackageReference Include="Lumina" Version="3.9.0" />
+    <PackageReference Include="Lumina.Excel" Version="6.2.0" />
   </ItemGroup>
 
 </Project>
