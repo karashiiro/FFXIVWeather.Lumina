@@ -1,4 +1,4 @@
-﻿using Lumina.Excel.GeneratedSheets;
+﻿using Lumina.Excel.Sheets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,14 +71,14 @@ namespace FFXIVWeather.Lumina
             // Every zone has at least one target at 100, and weatherTarget's domain is [0,99].
             var rateAccumulator = 0;
             var weatherId = -1;
-            for (var i = 0; i < weatherRateIndex.UnkData0.Length; i++)
+            for (var i = 0; i < weatherRateIndex.Rate.Count; i++)
             {
-                var w = weatherRateIndex.UnkData0[i];
+                // var w = weatherRateIndex.UnkData0[i];
 
-                rateAccumulator += w.Rate;
+                rateAccumulator += weatherRateIndex.Rate[i];
                 if (target < rateAccumulator)
                 {
-                    weatherId = w.Weather;
+                    weatherId = (int)weatherRateIndex.Weather[i].RowId;
                     break;
                 }
             }
@@ -102,15 +102,15 @@ namespace FFXIVWeather.Lumina
         private TerritoryType GetTerritory(string placeName)
         {
             var ciPlaceName = placeName.ToLowerInvariant();
-            var terriType = this.cyalume.GetExcelSheet<TerritoryType>().FirstOrDefault(tt => ((string)tt.PlaceName.Value.Name).ToLowerInvariant() == ciPlaceName);
-            if (terriType == null) throw new ArgumentException("Specified place does not exist.", nameof(placeName));
+            var terriType = this.cyalume.GetExcelSheet<TerritoryType>().FirstOrDefault(tt => ((string)tt.PlaceName.Value.Name.ExtractText()).ToLowerInvariant() == ciPlaceName);
+            if (terriType.RowId == 0) throw new ArgumentException("Specified place does not exist.", nameof(placeName));
             return terriType;
         }
 
         private TerritoryType GetTerritory(int terriTypeId)
         {
             var terriType = this.cyalume.GetExcelSheet<TerritoryType>().FirstOrDefault(tt => tt.RowId == terriTypeId);
-            if (terriType == null) throw new ArgumentException("Specified territory type does not exist.", nameof(terriTypeId));
+            if (terriType.RowId == 0) throw new ArgumentException("Specified territory type does not exist.", nameof(terriTypeId));
             return terriType;
         }
 
