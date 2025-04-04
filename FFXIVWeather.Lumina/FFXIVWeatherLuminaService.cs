@@ -31,7 +31,7 @@ namespace FFXIVWeather.Lumina
         {
             if (count == 0) return Array.Empty<(Weather, DateTime)>();
 
-            var weatherRateIndex = GetTerritoryTypeWeatherRateIndex(terriType);
+            var weatherRateIndex = terriType.WeatherRate.Value;
 
             // Initialize the return value with the current stuff
             var forecast = new List<(Weather, DateTime)> { GetCurrentWeather(terriType, initialOffset) };
@@ -59,7 +59,7 @@ namespace FFXIVWeather.Lumina
             var rootTime = GetCurrentWeatherRootTime(initialOffset);
             var target = CalculateTarget(rootTime);
 
-            var weatherRateIndex = GetTerritoryTypeWeatherRateIndex(terriType);
+            var weatherRateIndex = terriType.WeatherRate.Value;
             var weather = GetWeather(weatherRateIndex, target);
 
             return (weather, rootTime);
@@ -90,13 +90,6 @@ namespace FFXIVWeather.Lumina
 
             var weather = this.cyalume.GetExcelSheet<Weather>().ToList()[weatherId];
             return weather;
-        }
-
-        private WeatherRate GetTerritoryTypeWeatherRateIndex(TerritoryType terriType)
-        {
-            var terriTypeWeatherRateId = terriType.WeatherRate;
-            var weatherRateIndex = this.cyalume.GetExcelSheet<WeatherRate>().ToList()[terriTypeWeatherRateId];
-            return weatherRateIndex;
         }
 
         private TerritoryType GetTerritory(string placeName)
